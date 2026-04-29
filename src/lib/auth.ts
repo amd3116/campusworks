@@ -1,16 +1,11 @@
-import { USERS, CREDENTIALS } from './data'
-import type { User } from '@/types'
+import GoogleProvider from "next-auth/providers/google";
 
-export function validateCredentials(email: string, password: string): User | null {
-  const expectedPassword = CREDENTIALS[email]
-  if (!expectedPassword || expectedPassword !== password) return null
-  return USERS.find(u => u.email === email) || null
-}
-
-export function getUserById(id: string): User | null {
-  return USERS.find(u => u.id === id) || null
-}
-
-export function getUserByEmail(email: string): User | null {
-  return USERS.find(u => u.email === email) || null
-}
+export const authOptions = {
+  providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    }),
+  ],
+  secret: process.env.NEXTAUTH_SECRET,
+};

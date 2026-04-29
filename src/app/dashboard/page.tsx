@@ -1,5 +1,5 @@
 import { getServerSession } from 'next-auth'
-import { authOptions } from '../api/auth/[...nextauth]/route'
+import { authOptions } from '../api/auth/[...nextauth]/route1'
 import { AdminDashboard } from '@/components/dashboard/AdminDashboard'
 import { ManagerDashboard } from '@/components/dashboard/ManagerDashboard'
 import { StudentDashboard } from '@/components/dashboard/StudentDashboard'
